@@ -109,4 +109,4 @@ def main():
         log.info(_row.strip())
 
     cursor.close()
-    my_db.close()
+    my_db.close() # close connection
