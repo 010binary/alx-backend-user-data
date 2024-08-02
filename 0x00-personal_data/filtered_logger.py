@@ -107,3 +107,7 @@ def main():
 
     cursor.close()
     my_db.close()
+
+
+if __name__ == '__main__':
+    main()
