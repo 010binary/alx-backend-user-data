@@ -26,4 +26,5 @@ Effective session management is crucial for maintaining the security and usabili
 - Store session data securely, avoiding client-side storage or insecure storage mechanisms.
 - Regularly review and update session management mechanisms to address emerging security threats.
 
-Remember, effective session management is crucial for protecting user data and maintaining the integrity of your web application. By following best practices and using appropriate techniques, you can ensure a secure and seamless user experience.
+Remember, effective session management is crucial for protecting user data and maintaining the integrity of your web application.
+By following best practices and using appropriate techniques, you can ensure a secure and seamless user experience.
