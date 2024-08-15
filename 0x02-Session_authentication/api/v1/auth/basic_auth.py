@@ -11,7 +11,8 @@ from models.user import User
 class BasicAuth(Auth):
     """Basic authentication class"""
 
-    def extract_base64_authorization_header(self, authorization_header: str) -> str:
+    def extract_base64_authorization_header(
+            self, authorization_header: str) -> str:
         """Extracts the Base64 part of the Authorization header"""
         if not isinstance(authorization_header, str):
             return None
@@ -19,7 +20,8 @@ class BasicAuth(Auth):
             return None
         return authorization_header.split(" ", 1)[1]
 
-    def decode_base64_authorization_header(self, base64_authorization_header: str) -> str:
+    def decode_base64_authorization_header(
+            self, base64_authorization_header: str) -> str:
         """Decodes a base64-encoded authorization"""
         if not isinstance(base64_authorization_header, str):
             return None
@@ -29,7 +31,8 @@ class BasicAuth(Auth):
         except (binascii.Error, UnicodeDecodeError):
             return None
 
-    def extract_user_credentials(self, decoded_base64_authorization_header: str) -> Tuple[str, str]:
+    def extract_user_credentials(
+            self, decoded_base64_authorization_header: str) -> Tuple[str, str]:
         """Extracts user credentials from a base64-decoded authorization"""
         if not isinstance(decoded_base64_authorization_header, str):
             return None, None
@@ -37,7 +40,8 @@ class BasicAuth(Auth):
             return None, None
         return tuple(decoded_base64_authorization_header.split(':', 1))
 
-    def user_object_from_credentials(self, user_email: str, user_pwd: str) -> TypeVar('User'):
+    def user_object_from_credentials(
+            self, user_email: str, user_pwd: str) -> TypeVar('User'):
         """Retrieves user object from credentials"""
         if not isinstance(user_email, str) or not isinstance(user_pwd, str):
             return None
