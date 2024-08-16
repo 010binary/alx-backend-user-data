@@ -107,7 +107,13 @@ def reset_password_token(email: str) -> str:
 
 
 def update_password(email: str, reset_token: str, new_password: str) -> None:
-    """Update password"""
+    """update password
+
+    Args:
+        email (str): email
+        reset_token (str): reset token
+        new_password (str): new password
+    """
     data = {
         "email": email,
         "reset_token": reset_token,

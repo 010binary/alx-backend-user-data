@@ -11,13 +11,21 @@ AUTH = Auth()
 
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index() -> str:
-    """Index"""
+    """index function
+
+    Returns:
+        str: welcome message
+    """
     return jsonify({"message": "Bienvenue"})
 
 
 @app.route('/users', methods=['POST'])
 def register_user() -> Tuple[str, int]:
-    """Register a new user"""
+    """register user function
+
+    Returns:
+        Tuple[str, int]: email and status code
+    """
     email = request.form.get('email')
     password = request.form.get('password')
 
@@ -32,7 +40,11 @@ def register_user() -> Tuple[str, int]:
 
 @app.route('/sessions', methods=['POST'], strict_slashes=False)
 def login() -> str:
-    """implements login"""
+    """login function
+
+    Returns:
+        str: user email
+    """
     email = request.form.get('email')
     password = request.form.get('password')
     valid_login = AUTH.valid_login(email, password)
@@ -48,7 +60,11 @@ def login() -> str:
 
 @app.route('/sessions', methods=['DELETE'], strict_slashes=False)
 def logout() -> Union[abort, redirect]:
-    """logout function"""
+    """logout function
+
+    Returns:
+        Union[abort, redirect]: redirect to /
+    """
     session_id = request.cookies.get('session_id')
     user = AUTH.get_user_from_session_id(session_id)
 
@@ -61,7 +77,11 @@ def logout() -> Union[abort, redirect]:
 
 @app.route('/profile', strict_slashes=False)
 def profile() -> str:
-    """access profile"""
+    """profile function
+
+    Returns:
+        str: user email
+    """
     session_id = request.cookies.get('session_id')
     user = AUTH.get_user_from_session_id(session_id)
 
@@ -73,6 +93,11 @@ def profile() -> str:
 
 @app.route('/reset_password', methods=['POST'], strict_slashes=False)
 def get_reset_password_token() -> str:
+    """get reset password token
+
+    Returns:
+        str: reset token
+    """
     try:
         email = request.form.get('email')
         reset_token = AUTH.get_reset_password_token(email)
@@ -84,7 +109,11 @@ def get_reset_password_token() -> str:
 
 @app.route('/reset_password', methods=['PUT'], strict_slashes=False)
 def update_password() -> Tuple[str, int]:
-    """update password"""
+    """update password
+
+    Returns:
+        Tuple[str, int]: email and message
+    """
     reset_token = request.form.get('reset_token')
     new_password = request.form.get('new_password')
     email = request.form.get('email')
