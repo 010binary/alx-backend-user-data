@@ -10,7 +10,12 @@ NEW_PASSWD = "t4rt1fl3tt3"
 
 
 def register_user(email: str, password: str) -> None:
-    """register user"""
+    """register user
+
+    Args:
+        email (str): email
+        password (str): password
+    """
     data = {
         "email": email,
         "password": password
@@ -24,7 +29,12 @@ def register_user(email: str, password: str) -> None:
 
 
 def log_in_wrong_password(email: str, password: str) -> None:
-    """log in with wrong password"""
+    """log in wrong password
+
+    Args:
+        email (str): email
+        password (str): password
+    """
     data = {
         "email": email,
         "password": password
@@ -35,7 +45,15 @@ def log_in_wrong_password(email: str, password: str) -> None:
 
 
 def log_in(email: str, password: str) -> str:
-    """log in"""
+    """log in
+
+    Args:
+        email (str): email
+        password (str): password
+
+    Returns:
+        str: session id
+    """
     data = {
         "email": email,
         "password": password
@@ -53,7 +71,8 @@ def log_in(email: str, password: str) -> str:
 
 
 def profile_unlogged() -> None:
-    """profile unlogged"""
+    """profile unlogged
+    """
     cookies = {
         "session_id": ""
     }
@@ -63,7 +82,11 @@ def profile_unlogged() -> None:
 
 
 def profile_logged(session_id: str) -> None:
-    """profile logged in"""
+    """profile logged
+
+    Args:
+        session_id (str): session id
+    """
     cookies = {
         "session_id": session_id
     }
@@ -76,7 +99,11 @@ def profile_logged(session_id: str) -> None:
 
 
 def log_out(session_id: str) -> None:
-    """log out function"""
+    """log out
+
+    Args:
+        session_id (str): session id
+    """
     cookies = {
         "session_id": session_id
     }
@@ -89,7 +116,14 @@ def log_out(session_id: str) -> None:
 
 
 def reset_password_token(email: str) -> str:
-    """reset password"""
+    """reset password token
+
+    Args:
+        email (str): email
+
+    Returns:
+        str: reset token
+    """
     data = {
         "email": email
     }
